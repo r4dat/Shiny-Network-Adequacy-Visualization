@@ -15,7 +15,7 @@ shinyServer(function(input, output) {
   
   carrier_file = reactive({
     validate(
-      need(input$file_selected == "", label = "Provider or Facility file")
+      need(input$file_selected == "", "Please upload a Provider or Facility file for analysis.")
     )
     
     read.delim(input$file_selected$datapath,dec=","
