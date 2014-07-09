@@ -7,13 +7,17 @@ data(state)
 ## Set locale?
 Sys.setlocale(category="LC_ALL",locale="English_United States.1252")
 
-## Increase max upload file size!
+## Increase max upload file size! Currently 7 MB.
 options(shiny.maxRequestSize=7*1024^2)
 
 # Define server logic required to plot various variables against mpg
 shinyServer(function(input, output) {
   
   carrier_file = reactive({
+    validate(
+      need(input$file_selected == "", label = "Provider or Facility file")
+    )
+    
     read.delim(input$file_selected$datapath,dec=","
                ,stringsAsFactors = FALSE)
   })
