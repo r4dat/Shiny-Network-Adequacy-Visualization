@@ -14,9 +14,9 @@ options(shiny.maxRequestSize=7*1024^2)
 shinyServer(function(input, output) {
   
   carrier_file = reactive({
-    validate(
-      need(input$file_selected == "", "Please upload a Provider or Facility file for analysis.")
-    )
+#     validate(
+#       need(input$file_selected == "", "Please upload a Provider or Facility file for analysis.")
+#     )
     
     read.delim(input$file_selected$datapath,dec=","
                ,stringsAsFactors = FALSE)
