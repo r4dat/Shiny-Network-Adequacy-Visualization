@@ -21,8 +21,7 @@ colnames(Facility_Types)=c("type")
 colnames(Provider_Types)=c("type")
 tmp=as.vector(rbind(Facility_Types,Provider_Types))
 
-
-npi = runif(n = 5000,min = 10000000000,max=2000000000)
+npi = as.integer(runif(n = 5000,min = 1000000000,max=2000000000))
 prefix=sample(x=prefixsam,size=5000,replace=TRUE)
 first = sample(x = firstsam,size = 5000,replace = TRUE)
 middle=sample(x=middlesam,size=5000,replace=TRUE)
@@ -42,7 +41,26 @@ county = sample(countysam,5000,replace=TRUE)
 zip=tmp$zip
 net = sample(networksam,5000,replace=TRUE)
 fips=sample(c(15004,13006,25002),5000,replace=TRUE)
+provcol=sample(c(NA),5000,replace=TRUE)
 
-generated=rbind(npi,prefix,first,middle,last,suffix,physnon,specialty,street,streetdos,
-                        city,state,county,zip,net,fips)
-write.csv(generated,"sample_data.csv")
+gen_prov=as.data.frame(cbind(npi,prefix,first,middle,last,suffix,physnon,specialty,street,streetdos,
+                        city,state,county,zip,net,fips,provcol),stringsAsFactors=FALSE)
+
+colnames(gen_prov)=c("National Provider Number (NPI)","Provider Name Prefix","First Name of Provider",
+                      "Middle Initial of Provider","Last Name of Provider","Suffix of Provider",
+                      "Physician / Non-Physician","Specialty Type  (area of medicine)",
+                      "Street Address","Street Address 2","City","State","County",
+                      "Zip","Network IDs","FIPS Code","ProvDirIND01of0218973IA252D20140722T115902"
+)
+
+write.table(x = gen_prov,file = "sample_prov_data.txt",sep = "\t")
+
+## Change column name to Facility version.
+gen_fac=gen_prov
+colnames(gen_fac)=c("National Provider Number (NPI)","Provider Name Prefix","First Name of Provider",
+                     "Middle Initial of Provider","Last Name of Provider","Suffix of Provider",
+                     "Physician / Non-Physician","Facility Type*",
+                     "Street Address","Street Address 2","City","State","County",
+                     "Zip","Network IDs","FIPS Code","ProvDirIND01of0218973IA252D20140722T115902"
+)
+write.table(x=gen_fac,file="sample_fac_data.txt",sep="\t")
