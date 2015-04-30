@@ -34,7 +34,7 @@ shinyUI(
              ),
              conditionalPanel(
                condition = "input.radioType==2",
-               selectInput("fac_selected",label = "Select Facility Type",
+               selectInput("fac_selected",label = "Select Facility/Service Type",
                            Facility_Types$Facility_Types, selected = "Pharmacy")
              )
       )
