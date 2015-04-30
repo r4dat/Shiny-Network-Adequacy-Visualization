@@ -7,7 +7,7 @@ Individual_Provider_Types
 006 Primary Care – Nurse Practitioner
 007 Allergy and Immunology
 008 Cardiovascular Disease
-010 Chiropractor
+010 Chiropracty
 011 Dermatology
 012 Endocrinology
 013 ENT/Otolaryngology
@@ -24,14 +24,16 @@ Individual_Provider_Types
 025 Orthopedic Surgery
 026 Physical Medicine & Rehabilitation
 027 Plastic Surgery
-028 Podiatrist
+028 Podiatry
 029 Psychiatry
-030 Pulmonary Disease
+030 Pulmonology
 031 Rheumatology
 033 Urology
 034 Vascular Surgery
 035 Cardiothoracic Surgery
-101 Pediatrics
+101 Pediatrics - Routine/Primary Care
+102 Licensed Clinical Social Workers
+103 Psychology
 000 OTHER
 Dental - General
 Dental - Orthodontist
