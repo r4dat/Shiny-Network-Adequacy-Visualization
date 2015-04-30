@@ -5,7 +5,7 @@ library(shiny)
 ## UI creation so we're reading them in here.
 
 Provider_Types = read.csv("Provider_Types.csv", stringsAsFactors=FALSE,encoding="unknown")
-Facility_Types = read.csv("Facility_Types.csv",stringsAsFactors=FALSE)
+Facility_Types = read.csv("Facility_Types.csv",stringsAsFactors=FALSE,encoding="unknown")
 
 # Define UI for application that draws a histogram
 shinyUI(
