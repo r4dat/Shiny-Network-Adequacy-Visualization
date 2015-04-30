@@ -2,6 +2,8 @@ library(shiny)
 library(zipcode)
 library(plyr)
 library(ggplot2)
+library(maps)
+library(mapproj)
 data(zipcode)
 data(state)
 ## Set locale?
@@ -133,7 +135,7 @@ shinyServer(function(input, output) {
     
     
     p = ggplot(state_sub, aes(long, lat)) + geom_polygon(aes(group=group), colour='black', fill=NA) + geom_point(data = loc_geo_sub,aes(x=longitude,y=latitude),
-                                                                                                                 size=5,shape=20,color="black",alpha=1)+ 
+                                                                                                                 size=3,shape=20,color="black",alpha=1)+ 
       coord_map() + ggtitle(title_string) 
     
     if(input$compCheck==TRUE){
@@ -142,7 +144,7 @@ shinyServer(function(input, output) {
     }
     
     print(p)
-  })
+    })
   
   
   

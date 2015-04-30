@@ -1,11 +1,10 @@
 library(shiny)
-
 ## Assume Provider_Types and Facility_Types
 ## exist in the working direcotry. Needed for 
 ## UI creation so we're reading them in here.
 
-Provider_Types = read.csv("Provider_Types.csv", stringsAsFactors=FALSE,encoding="unknown")
-Facility_Types = read.csv("Facility_Types.csv",stringsAsFactors=FALSE,encoding="unknown")
+Provider_Types = read.csv("Provider_Types.csv", stringsAsFactors=FALSE,fileEncoding="latin1")
+Facility_Types = read.csv("Facility_Types.csv",stringsAsFactors=FALSE,fileEncoding="latin1")
 
 # Define UI for application that draws a histogram
 shinyUI(
